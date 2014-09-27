@@ -1,0 +1,30 @@
+{
+  "name": "csserror",
+  "version": "0.0.0",
+  "description": "Generate a CSS-based error message that will show in the browser",
+  "keywords": [
+    "css",
+    "error"
+  ],
+  "license": "MIT",
+  "author": "Peter Müller <munter@fumle.dk>",
+  "homepage": "https://github.com/Munter/csserror",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Munter/csserror.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Munter/csserror/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "jshint .",
+    "test": "npm run lint"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.6"
+  }
+}
