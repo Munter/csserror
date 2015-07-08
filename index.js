@@ -1,21 +1,9 @@
-function leftPad(str, length, padChar) {
-    str = String(str || '');
-    while (str.length < length) {
-        str = (padChar || ' ') + str;
-    }
-    return str;
-}
-
-function createCssStringLiteral(str, doubleEscape) {
-    return '"' + str.replace(/['\\\x00-\x1f]/g, function ($0) {
-        return '\\' + (doubleEscape ? '\\' : '') + leftPad($0.charCodeAt(0).toString(16), 6, '0');
-    }) + '"';
-}
+var createCssStringLiteral = require('./lib/createCssStringLiteral');
 
 function createCssError(str, doubleEscape) {
-    var tpl = 'body * {display: none !important;} body:before {line-height: 1.5; display: block; z-index: 99999999; white-space: pre; font-family: "Courier New", monospace; font-size: 20px; color: black; margin: 10px; padding: 10px; border: 4px dashed red; margin-bottom: 10px; content: __ERRORMESSAGE__;}';
+  var tpl = 'body * {\n  display: none !important;\n}\n\nbody:before {\n  line-height: 1.5;\n  display: block;\n  z-index: 99999999;\n  white-space: pre;\n  font-family: "Courier New", monospace;\n  font-size: 20px;\n  color: black;\n  margin: 10px;\n  padding: 10px;\n  border: 4px dashed red;\n  margin-bottom: 10px;\n  content: __ERRORMESSAGE__;\n}\n';
 
-    return tpl.replace('__ERRORMESSAGE__', createCssStringLiteral(str, doubleEscape));
+  return tpl.replace('__ERRORMESSAGE__', createCssStringLiteral(str, doubleEscape));
 }
 
 module.exports = createCssError;
