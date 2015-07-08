@@ -18,5 +18,5 @@ describe('csserror', function () {
 
   it('should escape the error message', function () {
     return expect(csserror('"'), 'to have content property', '\\000022');
-  })
+  });
 });

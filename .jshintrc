@@ -67,7 +67,7 @@
     "jquery"        : false,     // jQuery
     "mootools"      : false,    // MooTools
     "node"          : true,    // Node.js
-    "mocha"         : true
+    "mocha"         : true,
     "nonstandard"   : true,     // Widely adopted globals (escape, unescape, etc)
     "prototypejs"   : false,    // Prototype and Scriptaculous
     "rhino"         : false,    // Rhino
