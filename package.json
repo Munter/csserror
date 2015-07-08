@@ -18,7 +18,8 @@
   },
   "main": "index.js",
   "files": [
-    "index.js"
+    "index.js",
+    "lib"
   ],
   "scripts": {
     "lint": "jshint .",
