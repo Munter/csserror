@@ -1,7 +1,7 @@
 var expect = require('unexpected').clone();
 var csserror = require('../index');
 
-expect.addAssertion('string', 'to have content property', function (expect, subj, value) {
+expect.addAssertion('<string> to have content property <string>', function (expect, subj, value) {
   var lines = subj.split('\n').map(function (line) { return line.trim(); });
   var contentLine = lines.filter(function (line) { return line.indexOf('content:') === 0; })[0];
 
