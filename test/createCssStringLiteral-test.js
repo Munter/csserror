@@ -6,39 +6,86 @@ describe('createCssStringLiteral', function () {
     expect(createCssStringLiteral('HELLO WORLD'), 'to be', '"HELLO WORLD"');
   });
 
-  it('should CSS special chars', function () {
-    expect(createCssStringLiteral(' '), 'to be', '" "');
-    expect(createCssStringLiteral('!'), 'to be', '"\\000021"');
-    expect(createCssStringLiteral('"'), 'to be', '"\\000022"');
-    expect(createCssStringLiteral('#'), 'to be', '"\\000023"');
-    expect(createCssStringLiteral('$'), 'to be', '"\\000024"');
-    expect(createCssStringLiteral('%'), 'to be', '"\\000025"');
-    expect(createCssStringLiteral('&'), 'to be', '"\\000026"');
-    expect(createCssStringLiteral('\''), 'to be', '"\\000027"');
-    expect(createCssStringLiteral('('), 'to be', '"\\000028"');
-    expect(createCssStringLiteral(')'), 'to be', '"\\000029"');
-    expect(createCssStringLiteral('*'), 'to be', '"\\00002a"');
-    expect(createCssStringLiteral('+'), 'to be', '"\\00002b"');
-    expect(createCssStringLiteral(','), 'to be', '"\\00002c"');
-    expect(createCssStringLiteral('-'), 'to be', '"\\00002d"');
-    expect(createCssStringLiteral('.'), 'to be', '"\\00002e"');
-    expect(createCssStringLiteral('/'), 'to be', '"\\00002f"');
-    expect(createCssStringLiteral(':'), 'to be', '":"');
-    expect(createCssStringLiteral(';'), 'to be', '";"');
-    expect(createCssStringLiteral('<'), 'to be', '"<"');
-    expect(createCssStringLiteral('='), 'to be', '"="');
-    expect(createCssStringLiteral('>'), 'to be', '">"');
-    expect(createCssStringLiteral('?'), 'to be', '"?"');
-    expect(createCssStringLiteral('@'), 'to be', '"@"');
-    expect(createCssStringLiteral('['), 'to be', '"["');
-    expect(createCssStringLiteral('\\'), 'to be', '"\\00005c"');
-    expect(createCssStringLiteral(']'), 'to be', '"]"');
-    expect(createCssStringLiteral('^'), 'to be', '"^"');
-    expect(createCssStringLiteral('`'), 'to be', '"`"');
-    expect(createCssStringLiteral('{'), 'to be', '"{"');
-    expect(createCssStringLiteral('|'), 'to be', '"|"');
-    expect(createCssStringLiteral('}'), 'to be', '"}"');
-    expect(createCssStringLiteral('~'), 'to be', '"~"');
+  it('should escape CSS special chars', function () {
+    var strings = ' !"#$%&\'()*+,-./:;<=>?@[\\]^`{|}~'.split('').map(function (s) {
+      return createCssStringLiteral(s);
+    });
+
+    expect(strings, 'to satisfy', [
+      '" "',
+      '"\\21 "',
+      '"\\22 "',
+      '"\\23 "',
+      '"\\24 "',
+      '"\\25 "',
+      '"\\26 "',
+      '"\\27 "',
+      '"\\28 "',
+      '"\\29 "',
+      '"\\2a "',
+      '"\\2b "',
+      '"\\2c "',
+      '"\\2d "',
+      '"\\2e "',
+      '"\\2f "',
+      '":"',
+      '";"',
+      '"<"',
+      '"="',
+      '">"',
+      '"?"',
+      '"@"',
+      '"["',
+      '"\\5c "',
+      '"]"',
+      '"^"',
+      '"`"',
+      '"{"',
+      '"|"',
+      '"}"',
+      '"~"'
+    ]);
+  });
+
+  it('should double escape CSS special chars', function () {
+    var strings = ' !"#$%&\'()*+,-./:;<=>?@[\\]^`{|}~'.split('').map(function (s) {
+      return createCssStringLiteral(s, true);
+    });
+
+    expect(strings, 'to satisfy', [
+      '" "',
+      '"\\\\21 "',
+      '"\\\\22 "',
+      '"\\\\23 "',
+      '"\\\\24 "',
+      '"\\\\25 "',
+      '"\\\\26 "',
+      '"\\\\27 "',
+      '"\\\\28 "',
+      '"\\\\29 "',
+      '"\\\\2a "',
+      '"\\\\2b "',
+      '"\\\\2c "',
+      '"\\\\2d "',
+      '"\\\\2e "',
+      '"\\\\2f "',
+      '":"',
+      '";"',
+      '"<"',
+      '"="',
+      '">"',
+      '"?"',
+      '"@"',
+      '"["',
+      '"\\\\5c "',
+      '"]"',
+      '"^"',
+      '"`"',
+      '"{"',
+      '"|"',
+      '"}"',
+      '"~"'
+    ]);
   });
 });
 
