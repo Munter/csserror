@@ -28,7 +28,7 @@
     "coverage": "istanbul cover _mocha"
   },
   "devDependencies": {
-    "coveralls": "2.11.5",
+    "coveralls": "2.11.6",
     "istanbul": "0.4.1",
     "jshint": "2.8.0",
     "mocha": "2.3.4",
