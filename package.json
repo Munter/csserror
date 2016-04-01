@@ -28,11 +28,11 @@
     "coverage": "istanbul cover _mocha"
   },
   "devDependencies": {
-    "coveralls": "2.11.6",
-    "istanbul": "0.4.1",
-    "jshint": "2.8.0",
-    "mocha": "2.3.4",
-    "mocha-lcov-reporter": "1.0.0",
-    "unexpected": "10.5.0"
+    "coveralls": "2.11.9",
+    "istanbul": "0.4.2",
+    "jshint": "2.9.1",
+    "mocha": "2.4.5",
+    "mocha-lcov-reporter": "1.2.0",
+    "unexpected": "10.11.1"
   }
 }
