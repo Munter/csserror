@@ -22,8 +22,6 @@ function createCssError(str, doubleEscape) {
     '}'
   ].join('\n');
 
-  console.log(tpl);
-
   return tpl.replace('__ERRORMESSAGE__', createCssStringLiteral(str, doubleEscape));
 }
 
