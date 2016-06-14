@@ -1,6 +1,6 @@
 {
   "name": "csserror",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Generate a CSS-based error message that will show in the browser",
   "keywords": [
     "css",
